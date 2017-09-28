@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Saves</title>
+  </head>
+  <body>
+
+  <header>
+    <h1>GAME SAVES</h1>
+  </header>
+
+  <table>
+    <caption>Game Tracker</caption>
+    <thead>
+      <tr>
+        <th>Game Title</th>
+        <th>Publisher</th>
+        <th>Platform</th>
+        <th>Genre</th>
+        <th>My Rating</th>
+        <th>Own?</th>
+        <th>Played?</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for game in games %}
+      <tr>
+        <td>{{ game }}</td>
+        <td>{{ game.publisher }}</td>
+        <td>{{ game.platform }}</td>
+        <td>{{ game.genre }}</td>
+        <td>{{ game.personal_rating }}</td>
+        <td>{{ game.OWN_STATUS_CHOICES }}</td>
+        <td>{{ game.PLAY_STATUS }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  </body>
+</html>
