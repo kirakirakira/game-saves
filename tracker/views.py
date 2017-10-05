@@ -36,3 +36,9 @@ def edit_game(request, pk):
     else:
         form = GameForm(instance=game)
     return render(request, 'tracker/add_game.html', {'form':form})
+
+
+def delete_game(request, pk):
+    game = get_object_or_404(Game, pk=pk)
+    game.delete()
+    return redirect('tracker_table')
