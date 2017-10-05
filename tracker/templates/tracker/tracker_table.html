@@ -8,6 +8,7 @@
 
   <header>
     <h1>GAME SAVES</h1>
+    <a href="{% url 'add_game' %}">Add Game</a>
   </header>
 
   <table>
@@ -21,6 +22,7 @@
         <th>My Rating</th>
         <th>Own?</th>
         <th>Played?</th>
+        <th>Edit</th>
       </tr>
     </thead>
     <tbody>
@@ -33,6 +35,7 @@
         <td>{{ game.personal_rating }}</td>
         <td>{{ game.own_status }}</td>
         <td>{{ game.play_status }}</td>
+        <td><a href="{% url 'edit_game' pk=game.pk %}">Edit</a></td>
       </tr>
       {% endfor %}
     </tbody>
