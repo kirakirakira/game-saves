@@ -37,6 +37,8 @@ def edit_game(request, pk):
             game = form.save(commit=False)
             # TODO: Check if this game already exists in the database
             game.save()
+            # TODO: if editing from tracker table then go back to tracker table
+            # if editing from game detail page then go back to game detail page
             return redirect('tracker_table')
     else:
         form = GameForm(instance=game)

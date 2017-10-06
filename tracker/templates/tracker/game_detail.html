@@ -3,6 +3,7 @@
 {% block content %}
 
 <h3>{{ game.title }}</h3>
+<a href="{% url 'edit_game' pk=game.pk %}">Edit</a>
 <p>Publisher: {{ game.publisher }}</p>
 <p>Genre: {{ game.genre }}</p>
 <p>Platform: {{ game.platform }}</p>
