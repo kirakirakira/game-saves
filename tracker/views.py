@@ -11,6 +11,11 @@ def tracker_table(request):
     return render(request, 'tracker/tracker_table.html', {'games':games})
 
 
+def game_detail(request, pk):
+    game = get_object_or_404(Game, pk=pk)
+    return render(request, 'tracker/game_detail.html', {'game': game})
+
+
 def add_game(request):
     if request.method == 'POST':
         form = GameForm(request.POST)
