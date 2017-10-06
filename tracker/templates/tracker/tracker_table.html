@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Saves</title>
-  </head>
-  <body>
+{% extends 'tracker/base.html' %}
 
-  <header>
-    <h1>GAME SAVES</h1>
-    <a href="{% url 'add_game' %}">Add Game</a>
-  </header>
+{% block content %}
 
   <table>
     <caption>Game Tracker</caption>
@@ -42,6 +33,8 @@
       {% endfor %}
     </tbody>
   </table>
+
+{% endblock %}
 
   </body>
 </html>

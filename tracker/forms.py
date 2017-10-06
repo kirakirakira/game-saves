@@ -11,3 +11,8 @@ class GameForm(forms.ModelForm):
 
 
 # TODO: Create a formset so that you can add more than 1 game at a time
+GameFormSet = forms.modelformset_factory(
+    Game,
+    form=GameForm,
+    extra=5
+)
