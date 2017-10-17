@@ -20,15 +20,15 @@
     <tbody>
       {% for game in games %}
       <tr>
-        <td><a href="{% url 'game_detail' pk=game.pk %}">{{ game.title }}</a></td>
+        <td><a href="{% url 'detail' pk=game.pk %}">{{ game.title }}</a></td>
         <td>{{ game.publisher }}</td>
         <td>{{ game.platform }}</td>
         <td>{{ game.genre }}</td>
         <td>{{ game.personal_rating }}</td>
         <td>{{ game.own_status }}</td>
         <td>{{ game.play_status }}</td>
-        <td><a href="{% url 'edit_game' pk=game.pk %}">Edit</a></td>
-        <td><a href="{% url 'delete_game' pk=game.pk %}">Delete</a></td>
+        <td><a href="{% url 'update' pk=game.pk %}">Edit</a></td>
+        <td><a href="{% url 'delete' pk=game.pk %}">Delete</a></td>
       </tr>
       {% endfor %}
     </tbody>

@@ -2,9 +2,9 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.tracker_table, name='tracker_table'),
-    url(r'^game/(?P<pk>\d+)$', views.game_detail, name='game_detail'),
-    url(r'^new/$', views.add_game, name='add_game'),
-    url(r'^edit/(?P<pk>\d+)/$', views.edit_game, name='edit_game'),
-    url(r'^delete/(?P<pk>\d+)/$', views.delete_game, name='delete_game'),
+    url(r'^$', views.GameListView.as_view(), name='list'),
+    url(r'^game/(?P<pk>\d+)$', views.GameDetailView.as_view(), name='detail'),
+    url(r'^create/$', views.GameCreateView.as_view(), name='create'),
+    url(r'^edit/(?P<pk>\d+)/$', views.GameUpdateView.as_view(), name='update'),
+    url(r'^delete/(?P<pk>\d+)/$', views.GameDeleteView.as_view(), name='delete'),
 ]

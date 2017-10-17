@@ -3,9 +3,17 @@
 {% block content %}
 
 <h3>{{ game.title }}</h3>
-<a href="{% url 'edit_game' pk=game.pk %}">Edit</a>
+<a href="{% url 'update' pk=game.pk %}">Edit</a>
 <p>Publisher: {{ game.publisher }}</p>
 <p>Genre: {{ game.genre }}</p>
 <p>Platform: {{ game.platform }}</p>
+<p>{{ game.own_status }}</p>
+
+{% if game.own_status == "Want" %}
+<a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={{ game.title }}">Search Amazon for game</a>
+{% endif %}
+
+<p>{{ game.play_status }}</p>
+<p>{{ game.personal_rating }}</p>
 
 {% endblock %}

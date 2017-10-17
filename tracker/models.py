@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
@@ -26,6 +27,9 @@ class Game(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('games:detail', kwargs={'pk': self.pk})
 
 
 class Publisher(models.Model):
