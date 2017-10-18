@@ -11,10 +11,12 @@ from .forms import GameForm
 class GameListView(ListView):
     context_object_name = 'games'
     model = Game
+    highest_rated_game = Game.objects.order_by('-personal_rating').first()
+    buy_next_game = Game.objects.filter(own_status='Want').last()
 
     def get_ordering(self):
         self.order = self.request.GET.get('order', 'asc')
-        selected_ordering = self.request.GET.get('ordering', 'title')
+        selected_ordering = self.request.GET.get('ordering', default='title')
         if self.order == "desc":
             selected_ordering = "-" + selected_ordering
         return selected_ordering
@@ -23,6 +25,8 @@ class GameListView(ListView):
         context = super(GameListView, self).get_context_data(*args, **kwargs)
         context['current_order'] = self.get_ordering()
         context['order'] = self.order
+        context['highest_rated_game'] = self.highest_rated_game
+        context['buy_next_game'] = self.buy_next_game
         return context
 
 

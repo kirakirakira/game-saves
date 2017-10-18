@@ -2,6 +2,16 @@
 
 {% block content %}
 
+<div>
+  <h3>Your highest rated game</h3>
+  {{ highest_rated_game.title }} by {{ highest_rated_game.publisher }}
+</div>
+
+<div>
+  <h3>Purchase this game next</h3>
+  {{ buy_next_game.title }} on {{ buy_next_game.platform }}
+</div>
+
   <table>
     <caption>Game Tracker</caption>
     <thead>
