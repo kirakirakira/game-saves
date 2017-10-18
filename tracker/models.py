@@ -25,6 +25,9 @@ class Game(models.Model):
         blank=True,
     )
 
+    class Meta:
+        ordering = ['title']
+
     def __str__(self):
         return self.title
 
@@ -35,17 +38,26 @@ class Game(models.Model):
 class Publisher(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
 class Genre(models.Model):
     name = models.CharField(max_length=255)
 
+    class Meta:
+        ordering = ['name']
+
     def __str__(self):
         return self.name
 
 class Platform(models.Model):
     system = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['system']
 
     def __str__(self):
         return self.system

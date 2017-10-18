@@ -15,7 +15,7 @@ class GameListView(ListView):
     buy_next_game = Game.objects.filter(own_status='Want').last()
 
     def get_ordering(self):
-        self.order = self.request.GET.get('order', 'asc')
+        self.order = self.request.GET.get('order', default='asc')
         selected_ordering = self.request.GET.get('ordering', default='title')
         if self.order == "desc":
             selected_ordering = "-" + selected_ordering
