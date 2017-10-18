@@ -12,6 +12,19 @@ class GameListView(ListView):
     context_object_name = 'games'
     model = Game
 
+    def get_ordering(self):
+        self.order = self.request.GET.get('order', 'asc')
+        selected_ordering = self.request.GET.get('ordering', 'title')
+        if self.order == "desc":
+            selected_ordering = "-" + selected_ordering
+        return selected_ordering
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(GameListView, self).get_context_data(*args, **kwargs)
+        context['current_order'] = self.get_ordering()
+        context['order'] = self.order
+        return context
+
 
 class GameDetailView(DetailView):
     model = Game

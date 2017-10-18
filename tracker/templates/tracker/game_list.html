@@ -6,13 +6,13 @@
     <caption>Game Tracker</caption>
     <thead>
       <tr>
-        <th>Game Title</th>
-        <th>Publisher</th>
-        <th>Platform</th>
-        <th>Genre</th>
-        <th>My Rating</th>
-        <th>Own?</th>
-        <th>Played?</th>
+        <th><a href="{% url 'list' %}?ordering=title&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Game Title</a></th>
+        <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Publisher</a></th>
+        <th><a href="{% url 'list' %}?ordering=platform&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Platform</a></th>
+        <th><a href="{% url 'list' %}?ordering=genre&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Genre</a></th>
+        <th><a href="{% url 'list' %}?ordering=personal_rating&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">My Rating</a></th>
+        <th><a href="{% url 'list' %}?ordering=own_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Own?</a></th>
+        <th><a href="{% url 'list' %}?ordering=play_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Played?</a></th>
         <th>Edit</th>
         <th>Delete</th>
       </tr>
