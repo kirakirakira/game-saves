@@ -25,6 +25,14 @@ class GameListView(ListView):
         context['order'] = self.order
         return context
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        try:
+            q = Game.objects.filter(title__icontains=self.request.GET['q'])
+            return q
+        except:
+            return qs
+
 
 class GameDetailView(DetailView):
     model = Game
