@@ -13,6 +13,11 @@ class GameListView(ListView):
     model = Game
     highest_rated_game = Game.objects.order_by('-personal_rating').first()
     buy_next_game = Game.objects.filter(own_status='Want').last()
+    num_games_played = Game.objects.filter(play_status='Played').count()
+    num_games_nplayed = Game.objects.filter(play_status='Not Played').count()
+    num_games_own = Game.objects.filter(own_status='Own').count()
+    num_games_want = Game.objects.filter(own_status='Want').count()
+    tot_games_tracked = Game.objects.all().count()
 
     def get_ordering(self):
         self.order = self.request.GET.get('order', default='asc')
@@ -27,6 +32,11 @@ class GameListView(ListView):
         context['order'] = self.order
         context['highest_rated_game'] = self.highest_rated_game
         context['buy_next_game'] = self.buy_next_game
+        context['num_games_played'] = self.num_games_played
+        context['num_games_nplayed'] = self.num_games_nplayed
+        context['num_games_own'] = self.num_games_own
+        context['num_games_want'] = self.num_games_want
+        context['tot_games_tracked'] = self.tot_games_tracked
         return context
 
 
