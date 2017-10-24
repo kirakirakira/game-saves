@@ -1,29 +1,35 @@
 {% extends 'tracker/base.html' %}
-
+{% load tracker_extras %}
 {% block content %}
 
-<div>
-  <h3>Your highest rated game</h3>
-  {{ highest_rated_game.title }} by {{ highest_rated_game.publisher }}
+
+
+<div class="row">
+  <div class="col">
+    <h3>Play again?</h3>
+    {% highest_rated_game %}
+  </div>
+
+  <div class="col">
+    <h3>Purchase next</h3>
+    <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={% buy_next_game %}" target="_blank">{% buy_next_game %}</a>
+  </div>
+
+  <div class="col-sm-auto">
+    <table>
+      <caption>Inventory</caption>
+      <tbody>
+        <tr><td>{% num_games_played %}</td><td>Games Played</td></tr>
+        <tr><td>{% num_games_nplayed %}</td><td>Games Not Played</td></tr>
+        <tr><td>{% num_games_own %}</td><td>Games Owned</td></tr>
+        <tr><td>{% num_games_want %}</td><td>Games to Buy</td></tr>
+        <tr><td>{% tot_games_tracked %}</td><td>Total Games Tracked</td></tr>
+        </tbody>
+      </table>
+  </div>
 </div>
 
-<div>
-  <h3>Purchase this game next</h3>
-  {{ buy_next_game.title }} on {{ buy_next_game.platform }}
-</div>
-
-<div>
-  <table>
-    <caption><h3>Inventory</h3></caption>
-    <tbody>
-      <tr><td>{{ num_games_played }}</td><td>Games Played</td></tr>
-      <tr><td>{{ num_games_nplayed }}</td><td>Games Not Played</td></tr>
-      <tr><td>{{ num_games_own }}</td><td>Games Owned</td></tr>
-      <tr><td>{{ num_games_want }}</td><td>Games to Buy</td></tr>
-      <tr><td>{{ tot_games_tracked }}</td><td>Total Games Tracked</td></tr>
-      </tbody>
-    </table>
-</div>
+<a href="{% url 'create' %}">Add Game</a>
 
 <div>
   <table>

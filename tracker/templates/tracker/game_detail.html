@@ -7,14 +7,15 @@
 <p>Publisher: {{ game.publisher }}</p>
 <p>Genre: {{ game.genre }}</p>
 <p>Platform: {{ game.platform }}</p>
-<p>{{ game.own_status }}</p>
 
 {% if game.own_status == "Want" %}
-<a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={{ game.title }}">Search Amazon for game</a>
+<p>Own?: <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={{ game.title }}" target="_blank">{{ game.own_status }}</a></p>
+{% else %}
+<p>Own?: {{ game.own_status }}</p>
 {% endif %}
 
-<p>{{ game.play_status }}</p>
-<p>{{ game.personal_rating }}</p>
+<p>Played?: {{ game.play_status }}</p>
+<p>Personal Rating: {{ game.personal_rating }}</p>
 
 <a href="{% url 'games:list' %}">Back to Game Tracker</a>
 
