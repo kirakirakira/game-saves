@@ -2,8 +2,30 @@
 {% load tracker_extras %}
 {% block content %}
 
-{% for developer in developers %}
-  {{ developer.name }}
-{% endfor %}
+<a href="{% url 'dev_create' %}">Add Developer</a>
+
+<div>
+  <table>
+    <caption>Developers</caption>
+    <thead>
+      <tr>
+        <th>Developer Name</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for developer in developers %}
+      <tr>
+        <td>{{ developer.name }}</td>
+        <td><a href="{% url 'dev_update' pk=developer.pk %}">Edit</a></td>
+        <td><a href="{% url 'dev_delete' pk=developer.pk %}">Delete</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<a href="{% url 'games:list' %}">Back to Game Tracker</a>
 
 {% endblock %}

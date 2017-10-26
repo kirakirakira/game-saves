@@ -70,3 +70,8 @@ class DeveloperListView(ListView):
 class DeveloperUpdateView(UpdateView):
     fields = ('name',)
     model = Developer
+
+
+class DeveloperDeleteView(DeleteView):
+    model = Developer
+    success_url = reverse_lazy("developers:dev_list")

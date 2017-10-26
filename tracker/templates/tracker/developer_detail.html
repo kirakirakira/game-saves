@@ -6,6 +6,7 @@
 <a href="{% url 'dev_update' pk=developer.pk %}">Edit</a>
 <p>Name: {{ developer.name }}</p>
 
+<a href="{% url 'developers:dev_list' %}">Back to Developer List</a>
 <a href="{% url 'games:list' %}">Back to Game Tracker</a>
 
 {% endblock %}

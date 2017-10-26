@@ -11,4 +11,5 @@ urlpatterns = [
     url(r'^developer/detail/(?P<pk>\d+)$', views.DeveloperDetailView.as_view(), name='dev_detail'),
     url(r'^developer/list/$', views.DeveloperListView.as_view(), name='dev_list'),
     url(r'^developer/edit/(?P<pk>\d+)$', views.DeveloperUpdateView.as_view(), name='dev_update'),
+    url(r'^developer/delete/(?P<pk>\d+)$', views.DeveloperDeleteView.as_view(), name='dev_delete'),
 ]
