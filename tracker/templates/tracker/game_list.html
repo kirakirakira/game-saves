@@ -37,6 +37,7 @@
     <thead>
       <tr>
         <th><a href="{% url 'list' %}?ordering=title&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Game Title</a></th>
+        <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Developer</a></th>
         <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Publisher</a></th>
         <th><a href="{% url 'list' %}?ordering=platform&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Platform</a></th>
         <th><a href="{% url 'list' %}?ordering=genre&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Genre</a></th>
@@ -51,6 +52,7 @@
       {% for game in games %}
       <tr>
         <td><a href="{% url 'detail' pk=game.pk %}">{{ game.title }}</a></td>
+        <td>{{ game.developer }}</td>
         <td>{{ game.publisher }}</td>
         <td>{{ game.platform }}</td>
         <td>{{ game.genre }}</td>
@@ -67,7 +69,7 @@
 
 <div>
   <form method="GET" action"">
-    <input name="q" placeholder="Search" type="text">
+    <input name="q" placeholder="Search title" type="text">
     <input value="Search" type="submit">
   </form>
 </div>

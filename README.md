@@ -3,7 +3,7 @@ Project for Code Louisville Python Course (Django)
 
 
 ## To Do
-- [ ] Add developer to model
+- [X] Add developer to model
 - [ ] Preload game data (developers, publishers, platforms, genres)
 - [ ] Style!!!
 - [ ] Media queries!

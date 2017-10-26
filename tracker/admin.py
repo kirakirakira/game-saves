@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Game, Publisher, Genre, Platform
+from .models import Game, Publisher, Genre, Platform, Developer
 
 
 class GameAdmin(admin.ModelAdmin):
@@ -11,6 +11,8 @@ class GameAdmin(admin.ModelAdmin):
             kwargs["queryset"]=Genre.objects.order_by('name')
         if db_field.name=='publisher':
             kwargs["queryset"]=Publisher.objects.order_by('name')
+        if db_field.name == 'developer':
+            kwargs["queryset"]=Developer.objects.order_by('name')
         return super(GameAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 
@@ -19,3 +21,4 @@ admin.site.register(Game, GameAdmin)
 admin.site.register(Publisher)
 admin.site.register(Genre)
 admin.site.register(Platform)
+admin.site.register(Developer)

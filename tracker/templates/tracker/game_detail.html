@@ -4,6 +4,7 @@
 
 <h3>{{ game.title }}</h3>
 <a href="{% url 'update' pk=game.pk %}">Edit</a>
+<p>Developer: {{ game.developer }}</p>
 <p>Publisher: {{ game.publisher }}</p>
 <p>Genre: {{ game.genre }}</p>
 <p>Platform: {{ game.platform }}</p>
