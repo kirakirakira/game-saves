@@ -21,4 +21,5 @@ urlpatterns = [
     url(r'', include('tracker.urls')),
     url(r'^games/', include('tracker.urls', namespace='games')),
     url(r'^developer/', include('tracker.urls', namespace='developers')),
+    url(r'^publisher/', include('tracker.urls', namespace='publishers')),
 ]

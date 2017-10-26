@@ -2,20 +2,20 @@
 {% load tracker_extras %}
 {% block content %}
 
-<a href="{% url 'dev_create' %}">Add Developer</a>
+<a href="{% url 'pub_create' %}">Add Publisher</a>
 
 <div>
   <table>
-    <caption>Developers</caption>
+    <caption>Publishers</caption>
     <thead>
       <tr>
-        <th>Developer Name</th>
+        <th>Publisher Name</th>
       </tr>
     </thead>
     <tbody>
-      {% for developer in developers %}
+      {% for publisher in publishers %}
       <tr>
-        <td>{{ developer.name }}</td>
+        <td>{{ publisher.name }}</td>
       </tr>
       {% endfor %}
     </tbody>

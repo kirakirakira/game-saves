@@ -6,6 +6,7 @@ from django.views.generic import (
 
 from .models import Game
 from .models import Developer
+from .models import Publisher
 
 
 class GameListView(ListView):
@@ -72,6 +73,20 @@ class DeveloperUpdateView(UpdateView):
     model = Developer
 
 
-class DeveloperDeleteView(DeleteView):
-    model = Developer
-    success_url = reverse_lazy("developers:dev_list")
+class PublisherCreateView(CreateView):
+    fields = ('name',)
+    model = Publisher
+
+
+class PublisherDetailView(DetailView):
+    model = Publisher
+
+
+class PublisherListView(ListView):
+    context_object_name = 'publishers'
+    model = Publisher
+
+
+class PublisherUpdateView(UpdateView):
+    fields = ('name',)
+    model = Publisher
