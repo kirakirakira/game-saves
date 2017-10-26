@@ -7,4 +7,8 @@ urlpatterns = [
     url(r'^create/$', views.GameCreateView.as_view(), name='create'),
     url(r'^edit/(?P<pk>\d+)/$', views.GameUpdateView.as_view(), name='update'),
     url(r'^delete/(?P<pk>\d+)/$', views.GameDeleteView.as_view(), name='delete'),
+    url(r'^developer/create/$', views.DeveloperCreateView.as_view(), name='dev_create'),
+    url(r'^developer/detail/(?P<pk>\d+)$', views.DeveloperDetailView.as_view(), name='dev_detail'),
+    url(r'^developer/list/$', views.DeveloperListView.as_view(), name='dev_list'),
+    url(r'^developer/edit/(?P<pk>\d+)$', views.DeveloperUpdateView.as_view(), name='dev_update'),
 ]

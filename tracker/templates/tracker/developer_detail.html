@@ -1,0 +1,11 @@
+{% extends 'tracker/base.html' %}
+
+{% block content %}
+
+<h3>{{ developer.name }}</h3>
+<a href="{% url 'dev_update' pk=developer.pk %}">Edit</a>
+<p>Name: {{ developer.name }}</p>
+
+<a href="{% url 'games:list' %}">Back to Game Tracker</a>
+
+{% endblock %}

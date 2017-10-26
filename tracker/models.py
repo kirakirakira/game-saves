@@ -45,6 +45,9 @@ class Developer(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('developers:dev_detail', kwargs={'pk': self.pk})
+
 
 class Publisher(models.Model):
     name = models.CharField(max_length=255)

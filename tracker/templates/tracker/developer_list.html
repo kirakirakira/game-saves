@@ -1,0 +1,9 @@
+{% extends 'tracker/base.html' %}
+{% load tracker_extras %}
+{% block content %}
+
+{% for developer in developers %}
+  {{ developer.name }}
+{% endfor %}
+
+{% endblock %}

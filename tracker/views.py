@@ -5,7 +5,7 @@ from django.views.generic import (
 )
 
 from .models import Game
-from .forms import GameForm
+from .models import Developer
 
 
 class GameListView(ListView):
@@ -51,3 +51,22 @@ class GameUpdateView(UpdateView):
 class GameDeleteView(DeleteView):
     model = Game
     success_url = reverse_lazy("games:list")
+
+
+class DeveloperCreateView(CreateView):
+    fields = ('name',)
+    model = Developer
+
+
+class DeveloperDetailView(DetailView):
+    model = Developer
+
+
+class DeveloperListView(ListView):
+    context_object_name = 'developers'
+    model = Developer
+
+
+class DeveloperUpdateView(UpdateView):
+    fields = ('name',)
+    model = Developer
