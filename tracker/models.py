@@ -5,8 +5,9 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Create your models here.
 class Game(models.Model):
-    publisher = models.ForeignKey('Publisher')
     title = models.CharField(max_length=255)
+    developer = models.ForeignKey('Developer', null=True)
+    publisher = models.ForeignKey('Publisher')
     genre = models.ForeignKey('Genre')
     platform = models.ForeignKey('Platform')
     OWN_STATUS_CHOICES = (
@@ -33,6 +34,16 @@ class Game(models.Model):
 
     def get_absolute_url(self):
         return reverse('games:detail', kwargs={'pk': self.pk})
+
+
+class Developer(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ['name']
+
+    def __str__(self):
+        return self.name
 
 
 class Publisher(models.Model):

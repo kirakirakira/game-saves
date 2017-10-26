@@ -1,4 +1,5 @@
 from django import template
+import random
 
 from tracker.models import Game
 
@@ -12,8 +13,10 @@ def highest_rated_game():
 
 @register.simple_tag
 def buy_next_game():
-    '''Returns last game added to the tracker that is not owned'''
-    return Game.objects.filter(own_status='Want').last()
+    '''Returns a random game from tracker that is not owned'''
+    want_games = Game.objects.filter(own_status='Want')
+    random_index = random.randint(0, want_games.count() - 1)
+    return want_games[random_index]
 
 @register.simple_tag
 def num_games_played():

@@ -39,12 +39,12 @@ class GameDetailView(DetailView):
 
 
 class GameCreateView(CreateView):
-    fields = ('publisher', 'title', 'platform', 'genre', 'own_status', 'play_status', 'personal_rating')
+    fields = ('title', 'developer', 'publisher', 'platform', 'genre', 'own_status', 'play_status', 'personal_rating')
     model = Game
 
 
 class GameUpdateView(UpdateView):
-    fields = ('publisher', 'title', 'platform', 'genre', 'own_status', 'play_status', 'personal_rating')
+    fields = ('title', 'developer', 'publisher', 'platform', 'genre', 'own_status', 'play_status', 'personal_rating')
     model = Game
 
 

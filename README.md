@@ -9,7 +9,7 @@ Project for Code Louisville Python Course (Django)
 - [ ] Media queries!
 - [ ] Integrate IGDB API?? (check if game exists, auto-populate data, prevent creating a game that doesn't exist (mismatched publisher/platform/genre) etc.)
 - [ ] Add signup/login/logout/password change
-- [ ] Add randomness to Play again? and Purchase next
+- [ ] Add randomness to Play again? and [x] Purchase next
 - [ ] Move the add game link somewhere else
 - [ ] Add a footer
 - [ ] Change personal rating so you pick by clicking on stars
