@@ -14,3 +14,4 @@ Project for Code Louisville Python Course (Django)
 - [ ] Add a footer
 - [ ] Change personal rating so you pick by clicking on stars
 - [ ] Check whether a game is already added to your tracker and prevent it from being added again
+- [ ] Host project on pythonanywhere
