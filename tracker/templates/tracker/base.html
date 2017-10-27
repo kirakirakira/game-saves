@@ -12,11 +12,17 @@
   </head>
   <body>
 
-  <div class="container">
-    <h1 class="text-center"><a href="{% url 'list' %}">GAME SAVES</a></h1>
+    <div class="container content">
+      <h1 class="text-center"><a href="{% url 'list' %}">GAME SAVES</a></h1>
 
-    {% block content %}
-    {% endblock %}
-  </div>
+      {% block content %}
+      {% endblock %}
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <span class="text-muted">Copyright 2017 by Kira Hartlage</span>
+      </div>
+    </footer>
   </body>
 </html>

@@ -3,82 +3,91 @@
 {% block content %}
 
 
+<div class="container">
+  <div class="row">
+    <div class="col" id="play_again">
+      <h3>Play again?</h3>
+      {% highest_rated_game %}
+    </div>
 
-<div class="row">
-  <div class="col">
-    <h3>Play again?</h3>
-    {% highest_rated_game %}
+    <div class="col" id="purchase_next">
+      <h3>Purchase next</h3>
+      <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={% buy_next_game %}" target="_blank">{% buy_next_game %}</a>
+    </div>
+
+    <div class="col-sm-auto" id="summary_table">
+      <table>
+        <caption>Inventory</caption>
+        <tbody>
+          <tr><td>{% num_games_played %}</td><td>Games Played</td></tr>
+          <tr><td>{% num_games_nplayed %}</td><td>Games Not Played</td></tr>
+          <tr><td>{% num_games_own %}</td><td>Games Owned</td></tr>
+          <tr><td>{% num_games_want %}</td><td>Games to Buy</td></tr>
+          <tr><td>{% tot_games_tracked %}</td><td>Total Games Tracked</td></tr>
+          </tbody>
+        </table>
+    </div>
   </div>
 
-  <div class="col">
-    <h3>Purchase next</h3>
-    <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={% buy_next_game %}" target="_blank">{% buy_next_game %}</a>
-  </div>
-
-  <div class="col-sm-auto">
-    <table>
-      <caption>Inventory</caption>
+  <div class="row-fluid">
+    <table class="table table-striped table-sm table-responsive-md">
+      <caption>Game Tracker</caption>
+      <thead>
+        <tr>
+          <th><a href="{% url 'list' %}?ordering=title&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Game Title</a></th>
+          <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Developer</a></th>
+          <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Publisher</a></th>
+          <th><a href="{% url 'list' %}?ordering=platform&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Platform</a></th>
+          <th><a href="{% url 'list' %}?ordering=genre&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Genre</a></th>
+          <th><a href="{% url 'list' %}?ordering=personal_rating&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">My Rating</a></th>
+          <th><a href="{% url 'list' %}?ordering=own_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Own?</a></th>
+          <th><a href="{% url 'list' %}?ordering=play_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Played?</a></th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
       <tbody>
-        <tr><td>{% num_games_played %}</td><td>Games Played</td></tr>
-        <tr><td>{% num_games_nplayed %}</td><td>Games Not Played</td></tr>
-        <tr><td>{% num_games_own %}</td><td>Games Owned</td></tr>
-        <tr><td>{% num_games_want %}</td><td>Games to Buy</td></tr>
-        <tr><td>{% tot_games_tracked %}</td><td>Total Games Tracked</td></tr>
-        </tbody>
-      </table>
+        {% for game in games %}
+        <tr>
+          <td><a href="{% url 'detail' pk=game.pk %}">{{ game.title }}</a></td>
+          <td>{{ game.developer }}</td>
+          <td>{{ game.publisher }}</td>
+          <td>{{ game.platform }}</td>
+          <td>{{ game.genre }}</td>
+          <td>{{ game.personal_rating }}</td>
+          <td>{{ game.own_status }}</td>
+          <td>{{ game.play_status }}</td>
+          <td><a href="{% url 'update' pk=game.pk %}">Edit</a></td>
+          <td><a href="{% url 'delete' pk=game.pk %}">Delete</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
   </div>
+
+  <div class="row">
+    <div class="col-md-auto">
+      <form method="GET" action"">
+        <input name="q" placeholder="Search title" type="text">
+        <input value="Search" type="submit">
+      </form>
+    </div>
+    <div class="col text-left">
+      <a href="{% url 'create' %}">Add Game</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <a href="{% url 'developers:dev_list' %}">Developer List</a>
+      <a href="{% url 'dev_create' %}">Add Developer</a>
+
+      <a href="{% url 'publishers:pub_list' %}">Publisher List</a>
+      <a href="{% url 'pub_create' %}">Add Publisher</a>
+    </div>
+  </div>
+
 </div>
-
-<a href="{% url 'create' %}">Add Game</a>
-
-<div>
-  <table>
-    <caption>Game Tracker</caption>
-    <thead>
-      <tr>
-        <th><a href="{% url 'list' %}?ordering=title&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Game Title</a></th>
-        <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Developer</a></th>
-        <th><a href="{% url 'list' %}?ordering=publisher&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Publisher</a></th>
-        <th><a href="{% url 'list' %}?ordering=platform&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Platform</a></th>
-        <th><a href="{% url 'list' %}?ordering=genre&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Genre</a></th>
-        <th><a href="{% url 'list' %}?ordering=personal_rating&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">My Rating</a></th>
-        <th><a href="{% url 'list' %}?ordering=own_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Own?</a></th>
-        <th><a href="{% url 'list' %}?ordering=play_status&order={% if order == 'desc' %}asc{% else %}desc{% endif %}">Played?</a></th>
-        <th>Edit</th>
-        <th>Delete</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for game in games %}
-      <tr>
-        <td><a href="{% url 'detail' pk=game.pk %}">{{ game.title }}</a></td>
-        <td>{{ game.developer }}</td>
-        <td>{{ game.publisher }}</td>
-        <td>{{ game.platform }}</td>
-        <td>{{ game.genre }}</td>
-        <td>{{ game.personal_rating }}</td>
-        <td>{{ game.own_status }}</td>
-        <td>{{ game.play_status }}</td>
-        <td><a href="{% url 'update' pk=game.pk %}">Edit</a></td>
-        <td><a href="{% url 'delete' pk=game.pk %}">Delete</a></td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
-</div>
-
-<div>
-  <form method="GET" action"">
-    <input name="q" placeholder="Search title" type="text">
-    <input value="Search" type="submit">
-  </form>
-</div>
-
-<a href="{% url 'developers:dev_list' %}">Developer List</a>
-<a href="{% url 'dev_create' %}">Add Developer</a>
-
-<a href="{% url 'publishers:pub_list' %}">Publisher List</a>
-<a href="{% url 'pub_create' %}">Add Publisher</a>
 
 {% endblock %}
 
