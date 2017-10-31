@@ -15,7 +15,24 @@ body {
   margin-bottom: 20px;
 }
 
+form p label {
+  display: inline-block;
+  float: left;
+  clear: left;
+  width: 100px;
+}
 
+.buttons {
+  display: block;
+}
+
+.btn {
+  margin-top: 10px;
+}
+
+.btn-primary {
+  margin-right: 10px;
+}
 
 /******MEDIA QUERIES*******/
 @media (max-width: 576px) {
