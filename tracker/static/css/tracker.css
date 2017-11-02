@@ -45,12 +45,12 @@ form p label {
   display: block;
 }
 
-.btn {
-  margin-top: 10px;
+#save_button, #cancel_button {
+  margin-top: 6px;
 }
 
-.btn-primary {
-  margin-right: 10px;
+#save_button {
+  margin-right: 15px;
 }
 
 #developer_links, #publisher_links {
