@@ -69,19 +69,20 @@
     <div class="col-md-auto">
       <form method="GET" action"">
         <input name="q" placeholder="Search title" type="text">
-        <input value="Search" type="submit">
+        <input class="btn btn-primary" value="Search" type="submit">
       </form>
     </div>
     <div class="col text-left">
-      <a href="{% url 'create' %}">Add Game</a>
+      <a class="btn btn-primary" href="{% url 'create' %}" role="button">Add Game</a>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col">
+  <div class="row" id="developer_links">
+    <div class="col-md-auto">
       <a href="{% url 'developers:dev_list' %}">Developer List</a>
       <a href="{% url 'dev_create' %}">Add Developer</a>
-
+    </div>
+    <div class="col-md-auto" id="publisher-links">
       <a href="{% url 'publishers:pub_list' %}">Publisher List</a>
       <a href="{% url 'pub_create' %}">Add Publisher</a>
     </div>

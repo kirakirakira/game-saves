@@ -53,6 +53,14 @@ form p label {
   margin-right: 10px;
 }
 
+#developer_links, #publisher_links {
+  margin-top: 15px;
+}
+
+#developer_links a {
+  margin-right: 15px;
+}
+
 /******MEDIA QUERIES*******/
 @media (max-width: 576px) {
   #summary_table {
