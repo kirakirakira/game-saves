@@ -2,26 +2,28 @@
 {% load tracker_extras %}
 {% block content %}
 
-<a href="{% url 'dev_create' %}">Add Developer</a>
+<div class="container">
+  <a class="btn btn-primary" role="button" href="{% url 'dev_create' %}">Add Developer</a>
 
-<div>
-  <table>
-    <caption>Developers</caption>
-    <thead>
-      <tr>
-        <th>Developers</th>
-      </tr>
-    </thead>
-    <tbody>
-      {% for developer in developers %}
-      <tr>
-        <td>{{ developer.name }}</td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+  <div class="list">
+    <table>
+      <caption>Developers</caption>
+      <thead>
+        <tr>
+          <th>Developers</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for developer in developers %}
+        <tr>
+          <td>{{ developer.name }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <a href="{% url 'games:list' %}">Back to Game Tracker</a>
 </div>
-
-<a href="{% url 'games:list' %}">Back to Game Tracker</a>
 
 {% endblock %}
