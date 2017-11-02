@@ -9,14 +9,22 @@ register = template.Library()
 @register.simple_tag
 def highest_rated_game():
     '''Get the highest rated game that has been added to the tracker'''
-    return Game.objects.order_by('-personal_rating').first()
+    try:
+        game = Game.objects.order_by('-personal_rating').first()
+    except ValueError:
+        game = None
+    return game
 
 @register.simple_tag
 def buy_next_game():
     '''Returns a random game from tracker that is not owned'''
-    want_games = Game.objects.filter(own_status='Want')
-    random_index = random.randint(0, want_games.count() - 1)
-    return want_games[random_index]
+    try:
+        want_games = Game.objects.filter(own_status='Want')
+        random_index = random.randint(0, want_games.count() - 1)
+        game = want_games[random_index]
+    except ValueError:
+        game = 'You already own everything!'
+    return game
 
 @register.simple_tag
 def num_games_played():
