@@ -7,7 +7,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <div class="buttons">
-      <input class="btn btn-primary" type="submit" value="Save" id="save_button"/><a class="btn btn-secondary" href="{% url 'games:list' %}" id="cancel_button" role="button">Cancel</a>
+      <input class="btn btn-primary save_button" type="submit" value="Save" /><a class="btn btn-secondary cancel_button" href="{% url 'games:list' %}" role="button">Cancel</a>
     </div>
   </form>
 </div>

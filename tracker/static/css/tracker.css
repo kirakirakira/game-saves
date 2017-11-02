@@ -47,11 +47,11 @@ form p label {
   display: block;
 }
 
-#save_button, #cancel_button {
+.save_button, .cancel_button {
   margin-top: 6px;
 }
 
-#save_button {
+.save_button {
   margin-right: 15px;
 }
 

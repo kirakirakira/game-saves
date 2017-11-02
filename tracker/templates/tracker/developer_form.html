@@ -6,7 +6,7 @@
   <form method="POST" action="">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="save"><a href="{% url 'developers:dev_list' %}">Cancel</a>
+    <input class="btn btn-primary save_button" type="submit" value="Save" /><a class="btn btn-secondary cancel_button" href="{% url 'developers:dev_list' %}" role="button">Cancel</a>
   </form>
 </div>
 
