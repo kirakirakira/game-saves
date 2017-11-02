@@ -1,3 +1,5 @@
+/******BASE STYLES*******/
+
 html, body {
   height: 100%;
   margin-top: 10px;
@@ -61,7 +63,9 @@ form p label {
   margin-right: 15px;
 }
 
+
 /******MEDIA QUERIES*******/
+
 @media (max-width: 576px) {
   #summary_table {
     display: none;
@@ -70,5 +74,4 @@ form p label {
   #tracker_table {
     margin-top: 25px;
   }
-
 }

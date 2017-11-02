@@ -4,7 +4,7 @@ from .models import Game, Publisher, Genre, Platform, Developer
 
 class GameAdmin(admin.ModelAdmin):
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-        '''Alphabetically order the platform, genre, and publisher choices.'''
+        '''Alphabetically order the platform, genre, publisher, and developer choices.'''
         if db_field.name=='platform':
             kwargs["queryset"]=Platform.objects.order_by('system')
         if db_field.name=='genre':
@@ -16,7 +16,7 @@ class GameAdmin(admin.ModelAdmin):
         return super(GameAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
 
-# Register your models here.
+# Register models
 admin.site.register(Game, GameAdmin)
 admin.site.register(Publisher)
 admin.site.register(Genre)

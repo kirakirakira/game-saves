@@ -32,20 +32,25 @@ def buy_next_game():
 
 @register.simple_tag
 def num_games_played():
+    '''Returns the number of games that have been played'''
     return Game.objects.filter(play_status='Played').count()
 
 @register.simple_tag
 def num_games_nplayed():
+    '''Returns the number of game not played'''
     return Game.objects.filter(play_status='Not Played').count()
 
 @register.simple_tag
 def num_games_own():
+    '''Returns the number of games owned'''
     return Game.objects.filter(own_status='Own').count()
 
 @register.simple_tag
 def num_games_want():
+    '''Returns the number of games they want'''
     return Game.objects.filter(own_status='Want').count()
 
 @register.simple_tag
 def tot_games_tracked():
+    '''Returns the total number of games in tracker'''
     return Game.objects.all().count()

@@ -3,7 +3,7 @@ from django.utils import timezone
 from django.core.urlresolvers import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
 
-# Create your models here.
+
 class Game(models.Model):
     title = models.CharField(max_length=255)
     developer = models.ForeignKey('Developer', null=True)
