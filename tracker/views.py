@@ -10,10 +10,12 @@ from .models import Publisher
 
 
 class GameListView(ListView):
+    '''List view of all video games in the tracker'''
     context_object_name = 'games'
     model = Game
 
     def get_ordering(self):
+        '''Able to switch the ordering from ascending to descending and vice versa'''
         self.order = self.request.GET.get('order', default='asc')
         selected_ordering = self.request.GET.get('ordering', default='title')
         if self.order == "desc":
@@ -27,6 +29,7 @@ class GameListView(ListView):
         return context
 
     def get_queryset(self):
+        '''Function to get queryset for the search bar'''
         qs = super().get_queryset()
         try:
             q = Game.objects.filter(title__icontains=self.request.GET['q'])
@@ -68,11 +71,6 @@ class DeveloperListView(ListView):
     model = Developer
 
 
-class DeveloperUpdateView(UpdateView):
-    fields = ('name',)
-    model = Developer
-
-
 class PublisherCreateView(CreateView):
     fields = ('name',)
     model = Publisher
@@ -84,9 +82,4 @@ class PublisherDetailView(DetailView):
 
 class PublisherListView(ListView):
     context_object_name = 'publishers'
-    model = Publisher
-
-
-class PublisherUpdateView(UpdateView):
-    fields = ('name',)
     model = Publisher

@@ -5,6 +5,7 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Game(models.Model):
+    '''Model of a video game'''
     title = models.CharField(max_length=255)
     developer = models.ForeignKey('Developer', null=True)
     publisher = models.ForeignKey('Publisher')
@@ -37,6 +38,7 @@ class Game(models.Model):
 
 
 class Developer(models.Model):
+    '''Model of a video game developer'''
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -50,6 +52,7 @@ class Developer(models.Model):
 
 
 class Publisher(models.Model):
+    '''Model of a video game publisher'''
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -62,6 +65,7 @@ class Publisher(models.Model):
         return reverse('publishers:pub_detail', kwargs={'pk': self.pk})
 
 class Genre(models.Model):
+    '''Model of a video game genre'''
     name = models.CharField(max_length=255)
 
     class Meta:
@@ -71,6 +75,7 @@ class Genre(models.Model):
         return self.name
 
 class Platform(models.Model):
+    '''Model of a video game platform'''
     system = models.CharField(max_length=255)
 
     class Meta:

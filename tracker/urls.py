@@ -10,9 +10,7 @@ urlpatterns = [
     url(r'^developer/create/$', views.DeveloperCreateView.as_view(), name='dev_create'),
     url(r'^developer/detail/(?P<pk>\d+)$', views.DeveloperDetailView.as_view(), name='dev_detail'),
     url(r'^developer/list/$', views.DeveloperListView.as_view(), name='dev_list'),
-    url(r'^developer/edit/(?P<pk>\d+)$', views.DeveloperUpdateView.as_view(), name='dev_update'),
     url(r'^publisher/create/$', views.PublisherCreateView.as_view(), name='pub_create'),
     url(r'^publisher/detail/(?P<pk>\d+)$', views.PublisherDetailView.as_view(), name='pub_detail'),
     url(r'^publisher/list/$', views.PublisherListView.as_view(), name='pub_list'),
-    url(r'^publisher/edit/(?P<pk>\d+)$', views.PublisherUpdateView.as_view(), name='pub_update'),
 ]

@@ -5,7 +5,7 @@
 <h3>{{ publisher.name }}</h3>
 <p>Name: {{ publisher.name }}</p>
 
-<a href="{% url 'publishers:pub_list' %}">Back to Publisher List</a>
-<a href="{% url 'games:list' %}">Back to Game Tracker</a>
+<a class="btn btn-outline-primary" href="{% url 'publishers:pub_list' %}">Back to Publisher List</a>
+<a class="btn btn-outline-primary" href="{% url 'games:list' %}">Back to Game Tracker</a>
 
 {% endblock %}
