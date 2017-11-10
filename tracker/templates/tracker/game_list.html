@@ -82,14 +82,22 @@
     </div>
   </div>
 
-  <div class="row" id="developer_links">
-    <div class="col-md-auto">
-      <a href="{% url 'developers:dev_list' %}">Developer List</a>
-      <a href="{% url 'dev_create' %}">Add Developer</a>
+  <div class="row">
+    <div class="col-md-auto" id="developer_links">
+      <div class="col-sm-auto">
+        <a href="{% url 'developers:dev_list' %}">Developer List</a>
+      </div>
+      <div class="col-sm-auto">
+        <a href="{% url 'dev_create' %}">Add Developer</a>
+      </div>
     </div>
-    <div class="col-md-auto" id="publisher-links">
-      <a href="{% url 'publishers:pub_list' %}">Publisher List</a>
-      <a href="{% url 'pub_create' %}">Add Publisher</a>
+    <div class="col-md-auto" id="publisher_links">
+      <div class="col-sm-auto">
+        <a href="{% url 'publishers:pub_list' %}">Publisher List</a>
+      </div>
+      <div class="col-sm-auto">
+        <a href="{% url 'pub_create' %}">Add Publisher</a>
+      </div>
     </div>
   </div>
 

@@ -69,6 +69,12 @@ form p label {
 
 /******MEDIA QUERIES*******/
 
+@media (max-width: 540px) {
+  #publisher_links {
+    margin-top: 20px;
+  }
+}
+
 @media (max-width: 576px) {
   #summary_table {
     display: none;
