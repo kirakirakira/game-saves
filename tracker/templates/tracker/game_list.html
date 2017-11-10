@@ -12,7 +12,8 @@
 
     <div class="col" id="purchase_next">
       <h3>Purchase next</h3>
-      <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={% buy_next_game %}" target="_blank">{% buy_next_game %}</a>
+      {% buy_next_game as next_game %}
+      <a href="https://www.amazon.com/s?url=search-alias%3Dvideogames&field-keywords={{ next_game }}" target="_blank">{{ next_game }}</a>
     </div>
 
     <div class="col-sm-auto" id="summary_table">
