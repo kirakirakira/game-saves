@@ -14,6 +14,8 @@ This app is a tracker that allows you to add video games that you own or want to
 ## Preview site
 Can preview site at http://kirakirakira.pythonanywhere.com/
 
+___
+
 ### To Do
 - [X] Add developer to model
 - [X] Preload game data (developers, publishers, platforms, genres)
