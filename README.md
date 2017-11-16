@@ -17,11 +17,7 @@ To verify your Python3 version:
    2. Activate the virtual environment by running `source myvenv/bin/activate`
 4. Run the following command `pip install -r requirements.txt` to install necessary packages (If pip is not installed run `python3 -m pip install --user --upgrade pip`)
 5. Run the following command `python3 manage.py runserver 0.0.0.0:8000` to start the server
-  1. **Note**: A database (db.sqlite3) is checked into git. If you get a message asking you to run migrations, please do the following commands:
-
-  `python3 manage.py makemigrations`
-
-  `python3 manage.py migrate`
+  1. **Note**: A database (db.sqlite3) is checked into git. If you get a message asking you to run migrations, please do the following commands: `python3 manage.py makemigrations` then `python3 manage.py migrate`
 6. In the browser of your choosing, navigate to http://127.0.0.1:8000/
 
 ## Preview site
